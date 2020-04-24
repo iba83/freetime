@@ -1,0 +1,22 @@
+<div class="UserInput">
+  <h2 class="UserInput--title">パスワードを忘れた方</h2><br>
+  <p class="UserInput--explanation">
+    登録しているメールアドレスを入力し、</p>
+  <p class="UserInput--explanation">
+    「送信」ボタンを押してください。</p><br><br>
+
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field">
+      <%= f.label :email, "Eメール", class: "field--item" %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "field--input" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "送信", class: "actions--btn" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>

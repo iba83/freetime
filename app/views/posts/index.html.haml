@@ -1,0 +1,50 @@
+.wrapper
+  .title
+    %h1 My Free Time
+  .search
+    %input.search__form(type="text" placeholder="search")/
+    %label
+      %input.search__btn(type="submit")
+        %i.fas.fa-search.search__icon
+  .GroupContent
+    .groups
+      = link_to "映画鑑賞", "#", class: "group"
+      = link_to "映画鑑賞", "#", class: "group"
+      = link_to "映画鑑賞", "#", class: "group"
+      = link_to "映画鑑賞", "#", class: "group"
+    .groups
+      = link_to "映画鑑賞", "#", class: "group"
+      = link_to "映画鑑賞", "#", class: "group"
+      = link_to "映画鑑賞", "#", class: "group"
+      = link_to root_path do
+        %i.fas.fa-grip-horizontal.groups--etc
+  .contents 
+    .rank
+      .rank__top
+        %i.fas.fa-fire-alt.rank__top--icon
+        %p.rank__top--text Hot Category
+      .rank__no
+        %ol.rank__no__lists
+          %li.rank__no__lists--num#rank1 映画鑑賞
+          %li.rank__no__lists--num#rank2 映画鑑賞
+          %li.rank__no__lists--num 映画鑑賞
+          %li.rank__no__lists--num 映画鑑賞
+          %li.rank__no__lists--num 映画鑑賞
+    .new
+      %h2.new--title New
+      .posts
+        .post
+          .post--CategoryName
+            グループネーム
+          .post__content
+            .post__content--text
+              新しい投稿
+            %img.post__content--img(src="https://dime.jp/genre/files/2020/02/shutterstock_572338033-770x514.jpg")/
+        .post
+          .post--CategoryName
+            グループネーム
+          .post__content
+            .post__content--text
+              新しい投稿
+            %img.post__content--img(src="https://dime.jp/genre/files/2020/02/shutterstock_572338033-770x514.jpg")/
+  .footer

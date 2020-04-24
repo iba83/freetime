@@ -1,0 +1,5 @@
+- if user_signed_in?
+  .NewPost
+    %p.NewPost__circle
+    = link_to root_path, class: "NewPost__pen" do
+      %i.fas.fa-pencil-alt.NewPost__pen--icon
