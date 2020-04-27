@@ -1,5 +1,5 @@
-- if user_signed_in?
-  .NewPost
-    %p.NewPost__circle
-    = link_to root_path, class: "NewPost__pen" do
-      %i.fas.fa-pencil-alt.NewPost__pen--icon
+- user_signed_in? && unless current_page?(controller: "posts", action: "new")
+  .NewPostBtn
+    %p.NewPostBtn__circle
+    = link_to new_post_path, class: "NewPostBtn__pen" do
+      %i.fas.fa-pencil-alt.NewPostBtn__pen--icon

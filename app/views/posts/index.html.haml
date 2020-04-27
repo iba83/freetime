@@ -1,23 +1,21 @@
 .wrapper
   .title
-    %h1 My Free Time
+    %h1 My Free Time ...
   .search
     %input.search__form(type="text" placeholder="search")/
     %label
       %input.search__btn(type="submit")
         %i.fas.fa-search.search__icon
   .GroupContent
-    .groups
-      = link_to "映画鑑賞", "#", class: "group"
-      = link_to "映画鑑賞", "#", class: "group"
-      = link_to "映画鑑賞", "#", class: "group"
-      = link_to "映画鑑賞", "#", class: "group"
-    .groups
-      = link_to "映画鑑賞", "#", class: "group"
-      = link_to "映画鑑賞", "#", class: "group"
-      = link_to "映画鑑賞", "#", class: "group"
-      = link_to root_path do
-        %i.fas.fa-grip-horizontal.groups--etc
+    %ol.groups
+      - @groups.slice(0..6).each do |group|
+        %li= link_to group.name, group_path(group.id), class: "group"
+      = link_to do
+        %i.fas.fa-angle-double-down.etc
+    %ol.OtherGroups
+      - @groups.find_each(start: 8) do |group|
+        %li= link_to group.name, group_path(group.id), type: "button", class: "SubGroup"
+      = link_to ">>新しい趣味カテゴリーを追加する", new_group_path, id: "createGroup"
   .contents 
     .rank
       .rank__top
@@ -25,26 +23,17 @@
         %p.rank__top--text Hot Category
       .rank__no
         %ol.rank__no__lists
-          %li.rank__no__lists--num#rank1 映画鑑賞
-          %li.rank__no__lists--num#rank2 映画鑑賞
-          %li.rank__no__lists--num 映画鑑賞
-          %li.rank__no__lists--num 映画鑑賞
-          %li.rank__no__lists--num 映画鑑賞
+          - @groups.slice(0..4).each do |group|
+            %li= link_to group.name, group_path(group.id),class: "rank__no__lists--num"
     .new
       %h2.new--title New
       .posts
-        .post
-          .post--CategoryName
-            グループネーム
-          .post__content
-            .post__content--text
-              新しい投稿
-            %img.post__content--img(src="https://dime.jp/genre/files/2020/02/shutterstock_572338033-770x514.jpg")/
-        .post
-          .post--CategoryName
-            グループネーム
-          .post__content
-            .post__content--text
-              新しい投稿
-            %img.post__content--img(src="https://dime.jp/genre/files/2020/02/shutterstock_572338033-770x514.jpg")/
-  .footer
+        - @posts.first(5).each do |post|
+          .post
+            .post--CategoryName
+              グループネーム
+            .post__content
+              .post__content--text
+                = post.text
+            - if post.image.present?
+              = image_tag post.image.url, class: "post__content--img"

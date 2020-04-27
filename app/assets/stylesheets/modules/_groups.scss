@@ -1,0 +1,41 @@
+.GroupPosts {
+  padding: 30px 100px 40px;
+  &--title {
+    font-size: 40px;
+    letter-spacing: 10px;
+  }
+  &__posts {
+    padding: 30px 100px 70px 0px;
+    &__post {
+      margin-bottom: 30px;
+      padding: 15px 20px;
+      background-color: white;
+      text-align: right;
+      color: #a9a9a9;
+      border-radius: 10px;
+      border: 2px solid #a9a9a9;
+      &--created_at {
+        font-size: 14px;
+        padding-bottom: 10px;
+      }
+      &--text {
+        width: 100%;
+        font-size: 18px;
+        color: #696969;
+        text-align: left;
+        line-height: 30px;
+        word-break : break-all;
+      }
+      &--image {
+        width: 100%;
+        display: block;
+        margin: 10px auto;
+      }
+      &--userName {
+        text-decoration: none;
+        color: #a9a9a9;
+        margin-right: 5px;
+      }
+    }
+  }
+}
