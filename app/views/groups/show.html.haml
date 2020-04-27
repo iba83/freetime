@@ -1,0 +1,15 @@
+.GroupPosts
+  .GroupPosts--title
+    >>
+    = @group.name
+  .GroupPosts__posts
+    - @group.posts.each do |post|
+      .GroupPosts__posts__post
+        .GroupPosts__posts__post--created_at
+          = post.created_at.strftime("%Y年%m月%d日 %H:%M:%S")
+        - if post.text.present?
+          %p.GroupPosts__posts__post--text=post.text
+        - if post.image.present?
+          = image_tag post.image_url, class: "GroupPosts__posts__post--image"
+        = link_to post.user.name, "#", class: "GroupPosts__posts__post--userName"
+

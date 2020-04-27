@@ -1,4 +1,7 @@
 .header
+  .title
+    - unless current_page?(root_path)
+      =link_to "My Free Time ...", root_path, class: "header--title"
   .btns
     - if user_signed_in?
       = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btns--btn", id: "BtnLogin"

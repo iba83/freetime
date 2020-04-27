@@ -1,9 +1,16 @@
 .header {
-  height: 70px;
+  height: 60px;
   width: 100%;
   padding: 0 20px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  background-color: #20b2aa;
+  &--title {
+    font-size: 30px;
+    line-height: 60px;
+    color: white;
+    text-decoration: none;
+  }
   .btns {
     display: flex;
     align-items: center;
