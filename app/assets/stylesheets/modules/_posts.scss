@@ -313,9 +313,94 @@
       line-height: 40px;
       border-radius: 3px;
       text-decoration: none;
-      font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
       box-shadow: 1px 1px 5px 0 gray;
       margin: 30px auto;
+    }
+  }
+}
+
+.postShow {
+  padding: 80px 20%;
+  color: #808080;
+  &__content {
+    border: 1px solid #808080;
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+    &__details {
+      text-align: right;
+      padding-bottom: 20px;
+      &--groupName {
+        text-decoration: none;
+        color: #808080;
+        display: block;
+        font-size: 16px;
+      }
+      &--userName {
+        font-size: 16px;
+        text-decoration: none;
+        color: #808080;
+      }
+      &--time {
+        font-size: 14px;
+      }
+    }
+    &--text {
+      word-wrap: break-word;
+      font-size: 20px;
+    }
+    &--image {
+      width: 100%;
+      padding-top: 10px;
+    }
+    .comments {
+      border-top: 1px solid #808080;
+      margin-top: 30px;
+      padding: 20px;
+      &--title {
+        padding-bottom: 10px;
+        padding-left: 10px;
+      }
+      &__form {
+        display: flex;
+        &--input {
+          height: 40px;
+          width: 100%;
+          padding: 8px 10px;
+          margin-right: 10px;
+          border-radius: 3px;
+        }
+        &--button {
+          height: 40px;
+          width: 100px;
+          border: 1px solid #808080;
+          border-radius: 3px;
+          color: #808080;
+        }
+      }
+      &__index {
+        padding-top: 20px;
+        .userComment {
+          border-top: 1px solid #808080;
+          padding: 10px 5px;
+          &--text {
+            padding: 10px 0;
+            word-wrap: break-word;
+          }
+          &__details {
+            text-align: right;
+            &--name {
+              display: block;
+              text-decoration: none;
+              color: #808080;
+              font-size: 16px;
+            }
+            &--time {
+              font-size: 12px;
+            }
+          }
+        }
+      }
     }
   }
 }
