@@ -11,12 +11,20 @@ class PostsController < ApplicationController
   end
 
   def create
+    @groups = Group.all
     @post = Post.new(post_params)
     if @post.save
       redirect_to :root
     else
+      flash[:alert] = "送信に失敗しました。"
       render :new
     end
+  end
+
+  def show
+    @post = Post.find(params[:id])
+    @comment = Comment.new
+    @comments = Comment.includes(:user)
   end
 
   private

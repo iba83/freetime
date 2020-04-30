@@ -11,5 +11,6 @@
           %p.GroupPosts__posts__post--text=post.text
         - if post.image.present?
           = image_tag post.image_url, class: "GroupPosts__posts__post--image"
-        = link_to post.user.name, "#", class: "GroupPosts__posts__post--userName"
+        = link_to "コメント(0)", post_path(post.id), class: "GroupPosts__posts__post--comment"
+        = link_to post.user.name, user_path(post.user.id), class: "GroupPosts__posts__post--userName"
 
