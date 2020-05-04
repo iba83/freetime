@@ -1,20 +1,23 @@
 .wrapper
   .title
     %h1 My Free Time ...
-  .search
-    %input.search__form(type="text" placeholder="search")/
-    %label
-      %input.search__btn(type="submit")
-        %i.fas.fa-search.search__icon
+  = form_with(url: search_posts_path, local: true, method: :get, class: "search") do |form|
+    = form.text_field :keyword, class: "search__form"
+    %button{type: "submit", class: "search__icon"}
+      %i.fas.fa-search
   .GroupContent
     %ol.groups
-      - @groups.slice(0..6).each do |group|
+      - @groups.slice(0..8).each do |group|
         %li= link_to group.name, group_path(group.id), class: "group"
-      = link_to do
-        %i.fas.fa-angle-double-down.etc
+      - if @groups.length >= 9
+        = link_to do
+          %i.fas.fa-angle-double-down.etc
+      - if @groups.length < 9
+        %li= link_to "グループを作る", new_group_path, class: "group"
     %ol.OtherGroups
-      - @groups.find_each(start: 8) do |group|
-        %li= link_to group.name, group_path(group.id), type: "button", class: "SubGroup"
+      - if @groups.length > 9
+        - @groups.slice(9..-1).each do |group|
+          %li= link_to group.name, group_path(group.id), type: "button", class: "SubGroup"
       = link_to ">>新しい趣味カテゴリーを追加する", new_group_path, id: "createGroup"
   .contents 
     .rank
@@ -31,7 +34,7 @@
         - @posts.first(5).each do |post|
           .post
             .post--CategoryName
-              グループネーム
+              = post.group.name
             .post__content
               .post__content--text
                 = post.text

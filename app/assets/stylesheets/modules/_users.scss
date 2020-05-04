@@ -1,5 +1,5 @@
 .userShow {
-  padding: 50px 80px;
+  padding: 50px 120px;
   &--userName {
     font-size: 20px;
     text-align: right;
@@ -7,27 +7,49 @@
   }
   &__contents {
     display: flex;
-    .userGroupsIndex {
-      width: 200px;
+    .userLeftContent {
       height: 100%;
-      margin-right: 40px;
-      padding: 20px 20px 10px;
-      margin-top: 20px;
-      border-radius: 5px;
-      border: 1px solid #808080;
-      &__items {
-        margin-bottom: 10px;
-        &--name {
-          text-decoration: none;
-          color: #808080;
+      .userGroupsIndex {
+        width: 300px;
+        height: 100%;
+        margin-right: 60px;
+        padding: 10px 20px 10px;
+        margin-top: 20px;
+        border-radius: 5px;
+        border: 1px solid #808080;
+        &__items {
+          &--name {
+            text-decoration: none;
+            color: #808080;
+          }
         }
-      }
-      &--title {
-        margin-bottom: 10px;
-        padding-bottom: 2px;
-        color: #808080;
-        font-size: 18px;
-        border-bottom: 1px solid #808080;
+        &__Edit {
+          text-align: center;
+          &--userEdit {
+            font-size: 18px;
+            text-decoration: none;
+            color: #808080;
+          }  
+          .followUsers {
+            display: none;
+            border-top: 1px solid #808080;
+            &__list a{
+              text-align: left;
+              text-decoration: none;
+              color: #808080;
+              display: block;
+              padding-top: 5px;
+            }
+          }
+        }
+        &--title {
+          margin-bottom: 10px;
+          padding-bottom: 2px;
+          color: #808080;
+          font-size: 18px;
+          text-align: center;
+          border-bottom: 1px solid #808080;
+        }
       }
     }
     .userPosts {
@@ -57,6 +79,18 @@
             color: #808080;
             margin-right: 5px;
           }
+        }
+      }
+      .comand {
+        padding-bottom: 5px;
+        text-align: right;
+        &--button {
+          text-decoration: none;
+          font-size: 15px;
+          color: #a9a9a9;
+        }
+        #comandDelete {
+          margin-left: 5px;
         }
       }
     }

@@ -1,7 +1,14 @@
 class Group < ApplicationRecord
   has_many :posts
-  has_many :group_users
-  has_many :users, through: :group_users
 
   validates :name, presence: true
+
+  def self.search(search)
+    if search
+      self.where("name LIKE(?)", "%#{search}%")
+    else
+      return nil
+    end
+  end
+
 end

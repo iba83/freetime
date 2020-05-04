@@ -1,12 +1,36 @@
 .userShow
   .userShow--userName
-    = "#{@user.name}さんの投稿"
+    = "#{@user.nickname}さんの投稿"
   .userShow__contents
-    .userGroupsIndex
-      .userGroupsIndex--title
-        投稿カテゴリー
-      - @groups.each do |group|
-        .userGroupsIndex__items
-          = link_to "#{group.name}(#{@group_id.count(group.id)})", "#", class: "userGroupsIndex__items--name"
-    = render partial: "post"
-    = render partial: "category"
+    .userLeftContent
+      = render "follows/follow_button", user: @user
+      .userGroupsIndex
+        .userGroupsIndex__Edit
+          = link_to "ユーザー編集",  edit_user_registration_path, class: "userGroupsIndex__Edit--userEdit"
+      .userGroupsIndex
+        .userGroupsIndex__Edit
+          = link_to "フォロー中のユーザー", "#", class: "userGroupsIndex__Edit--userEdit"
+          %ol.followUsers
+            - @followUsers.each do |user|
+              %li.followUsers__list= link_to user.nickname, user_path(user.id)
+      .userGroupsIndex
+        .userGroupsIndex--title
+          投稿カテゴリー
+        - @groups.each do |group|
+          .userGroupsIndex__items
+            = link_to "#{group.name}(#{@group_id.count(group.id)})", group_path(group.id), value: group.id, class: "userGroupsIndex__items--name"
+    .userPosts
+      - @posts.each do |post|
+        .userPosts__post
+          .comand
+            - if user_signed_in? && current_user.id == post.user_id
+              = link_to "編集", "#", class: "comand--button"
+              = link_to "削除", "#", class: "comand--button", id: "comandDelete"
+          .userPosts__post--text
+            - if post.text.present?
+              = post.text
+            - if post.image.present?
+              = image_tag post.image_url, class: "userPosts__post--image"
+          .userPosts__post__details
+            = link_to "コメント ( #{post.comments.length} )", post_path(post.id), class: "userPosts__post__details--comments"
+            = post.created_at.strftime("%Y年%m月%d日 %H:%M:%S")

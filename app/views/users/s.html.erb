@@ -1,0 +1,29 @@
+.userPosts
+- @posts.where(group_id: 3).each do |post|
+  .userPosts__post
+    .userPosts__post--text
+      - if post.text.present?
+        = post.text
+      - if post.image.present?
+        = image_tag post.image_url, class: "userPosts__post--image"
+    .userPosts__post__details
+      = link_to "コメント ( #{post.comments.length} )", "#", class: "userPosts__post__details--comments"
+      = post.created_at.strftime("%Y年%m月%d日 %H:%M:%S")
+
+<div class="userPosts">
+  <% @posts.where(group_id: 3).each do |post| %>
+    <div class="userPosts__post">
+      <div class="userPosts__post--text">
+        <% if post.text.present? %>
+          <%= post.text %>
+        <% end %>
+        <% if post.image.present? %>
+          <%= image_tag post.image_url, class="userPosts__post--image" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="userPosts__post__details">
+      <%= link_to "コメント ( #{post.comments.length} )", "#", class="userPosts__post__details--comments" %>
+      <%= post.created_at.strftime("%Y年%m月%d日 %H:%M:%S") %>
+    </div>
+</div>

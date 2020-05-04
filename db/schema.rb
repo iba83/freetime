@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_01_024512) do
+ActiveRecord::Schema.define(version: 2020_05_03_074354) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 2020_05_01_024512) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "follows", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "follow_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["follow_id"], name: "index_follows_on_follow_id"
+    t.index ["user_id", "follow_id"], name: "index_follows_on_user_id_and_follow_id", unique: true
+    t.index ["user_id"], name: "index_follows_on_user_id"
+  end
+
   create_table "groups", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -36,8 +46,8 @@ ActiveRecord::Schema.define(version: 2020_05_01_024512) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
     t.bigint "group_id"
+    t.bigint "user_id"
     t.index ["group_id"], name: "index_posts_on_group_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
@@ -59,6 +69,8 @@ ActiveRecord::Schema.define(version: 2020_05_01_024512) do
   end
 
   add_foreign_key "comments", "users"
+  add_foreign_key "follows", "users"
+  add_foreign_key "follows", "users", column: "follow_id"
   add_foreign_key "posts", "groups"
   add_foreign_key "posts", "users"
 end

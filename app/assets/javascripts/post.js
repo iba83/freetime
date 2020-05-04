@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function() {
-  var colors = ["#4682b4", "#008080", "#2e8b57", "#ffd700", "#d2691e", "#ff6347", "#ff69b4", "#6a5acd"];
+  var colors = ["#1e90ff", "#008000", "#8b008b", "#ffd700", "#d2691e", "#ffa500", "#ff69b4", "#6a5acd", "#ff4500"];
   var RandomColor = colors[Math.floor(Math.random()*colors.length)];  
 
   $(".group").each(function(){
@@ -20,6 +20,29 @@ $(document).on('turbolinks:load', function() {
   $(function(){
     $("#tag").on("click", function(){
       $(".GroupTags").slideToggle();
+      return false
+    })
+  })
+
+  $(function(){
+    $("#groupButton").on("click", function(){
+      $("#searchGroupList").show();
+      $("#searchUserList").hide();
+      $("#searchPostList").hide();
+      $(this).css({background: "#ff9933", color: "white"});
+      $("#userButton").css({background: "white", color: "#808080"});
+      $("#postButton").css({background: "white", color: "#808080"});
+      return false
+    })
+  })
+  $(function(){
+    $("#postButton").on("click", function(){
+      $("#searchPostList").show();
+      $("#searchUserList").hide();
+      $("#searchGroupList").hide();
+      $(this).css({background: "#ff9933", color: "white"});
+      $("#userButton").css({background: "white", color: "#808080"});
+      $("#groupButton").css({background: "white", color: "#808080"});
       return false
     })
   })

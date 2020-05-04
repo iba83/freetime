@@ -1,0 +1,15 @@
+.searchResult
+  .searchResult__buttons
+    = link_to "ユーザー", "#", class: "searchResult__buttons--item", id: "userButton"
+    = link_to "投稿ページ", "#", class: "searchResult__buttons--item", id: "postButton"
+    = link_to "カテゴリー", "#", class: "searchResult__buttons--item", id: "groupButton"
+  .searchResult__index
+    %ul#searchUserList
+      = render partial: "posts/searchUser", collection: @searchUsers
+    %ul#searchPostList
+      = render partial: "posts/searchPost", collection: @searchPosts
+    %ul#searchGroupList
+      = render partial: "posts/searchGroup", collection: @searchGroups
+
+
+

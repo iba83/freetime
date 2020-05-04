@@ -1,6 +1,8 @@
 .createGroup
   .createGroup--question
     どんな趣味グループを作成しますか？
-  = form_with model: @group, local: true, class: "createGroup__form" do |f|
-    = f.text_field :name, autofocus: true, class: "createGroup__form--groupName"
-    = f.submit "作成", class: "createGroup__form--groupButton"
+  = form_with model: @group, local: true do |f|
+    = render "layouts/error_messages", model: f.object
+    .createGroup__form
+      = f.text_field :name, autofocus: true, class: "createGroup__form--groupName"
+      = f.submit "作成", class: "createGroup__form--groupButton"

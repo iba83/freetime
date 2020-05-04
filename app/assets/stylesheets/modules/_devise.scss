@@ -1,7 +1,7 @@
 .UserInput {
   padding-top: 20px;
   text-align: center;
-  height: calc(100vh - 70px);
+  height: calc(100vh - 60px);
   background-color: #add8e6;
   width: 100%;
   &--explanation {
@@ -15,7 +15,7 @@
     margin: 0 auto;
     color: #808080;
   }
-  .new_user {
+  .new_user,.edit_user{
     width: 40%;
     margin: 0 auto;
     text-align: left;
@@ -59,6 +59,13 @@
         margin: 0px auto;
       }
     }
+  }
+  .return {
+    display: block;
+    text-decoration: none;
+    margin-top: 20px;
+    color: #808080;
+    font-size: 15px;    
   }
 }
 .ForgetPass {

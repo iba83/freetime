@@ -1,13 +1,14 @@
 .header {
-  height: 60px;
+  height: 80px;
   width: 100%;
-  padding: 0 20px;
+  padding: 0 40px;
   display: flex;
   justify-content: space-between;
-  background-color: #20b2aa;
+  background-color: #009999;
+  box-shadow: 2px 2px 5px 0 gray;
   &--title {
-    font-size: 30px;
-    line-height: 60px;
+    font-size: 70px;
+    line-height: 80px;
     color: white;
     text-decoration: none;
   }

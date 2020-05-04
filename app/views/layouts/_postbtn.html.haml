@@ -1,5 +1,6 @@
-- user_signed_in? && unless current_page?(controller: "posts", action: "new")
+- user_signed_in? && unless %w[new_post edit_user_registration].any? {|name| current_page?(send("#{name}_path"))}
   .NewPostBtn
     %p.NewPostBtn__circle
     = link_to new_post_path, class: "NewPostBtn__pen" do
       %i.fas.fa-pencil-alt.NewPostBtn__pen--icon
+      %p.NewPostBtn__pen--font NewPost
