@@ -8,9 +8,11 @@ Rails.application.routes.draw do
     end
   end
   resources :groups, only: [:new, :create, :show]
-  resources :users, only: [:show]
-  namespace :category do
-    resources :users, only: :show, defaults: {format: 'json'}
+  resources :users, only: [:show] do
+    member do
+      get "category"
+    end
   end
+  
   resources :follows, only: [:create, :destroy]
 end

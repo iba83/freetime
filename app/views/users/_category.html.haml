@@ -1,0 +1,15 @@
+.userPosts__post
+  .userPosts__post--categoryName
+    = "#{category.group.name} <"
+  .comand
+    - if user_signed_in? && current_user.id == category.user_id
+      = link_to "編集", "#", class: "comand--button"
+      = link_to "削除", "#", class: "comand--button", id: "comandDelete"
+  .userPosts__post--text
+    - if category.text.present?
+      = category.text
+    - if category.image.present?
+      = image_tag category.image_url, class: "userPosts__post--image"
+  .userPosts__post__details
+    = link_to "コメント ( #{category.comments.length} )", post_path(category.id), class: "userPosts__post__details--comments"
+    = category.created_at.strftime("%Y年%m月%d日 %H:%M:%S")

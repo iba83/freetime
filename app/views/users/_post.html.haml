@@ -1,0 +1,13 @@
+.userPosts__post
+  .comand
+    - if user_signed_in? && current_user.id == post.user_id
+      = link_to "編集", "#", class: "comand--button"
+      = link_to "削除", "#", class: "comand--button", id: "comandDelete"
+  .userPosts__post--text
+    - if post.text.present?
+      = post.text
+    - if post.image.present?
+      = image_tag post.image_url, class: "userPosts__post--image"
+  .userPosts__post__details
+    = link_to "コメント ( #{post.comments.length} )", post_path(post.id), class: "userPosts__post__details--comments"
+    = post.created_at.strftime("%Y年%m月%d日 %H:%M:%S")
