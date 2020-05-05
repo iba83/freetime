@@ -15,5 +15,13 @@ class Post < ApplicationRecord
     end
   end
 
+  def self.searchCategory(id, num)
+    if num
+      self.where(user_id: id, group_id: num)
+    else
+      return nil
+    end
+  end
+
   mount_uploader :image, ImageUploader
 end
