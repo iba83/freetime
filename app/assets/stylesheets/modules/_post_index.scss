@@ -1,0 +1,53 @@
+.PostsIndexPosts {
+  padding: 20px 0;
+  width: 100%;
+  .comand {
+    padding-bottom: 3px;
+    &--button {
+      text-decoration: none;
+      font-size: 15px;
+      color: #a9a9a9;
+    }
+    #comandDelete {
+      margin-left: 5px;
+    }
+  }
+  &__one {
+    margin-bottom: 30px;
+    padding: 30px;
+    background-color: white;
+    text-align: right;
+    color: #a9a9a9;
+    border-radius: 10px;
+    border: 2px solid #a9a9a9;
+    &--created_at {
+      font-size: 14px;
+      padding-bottom: 10px;
+    }
+    &--text {
+      width: 100%;
+      font-size: 18px;
+      color: #696969;
+      text-align: left;
+      line-height: 30px;
+      word-break : break-all;
+    }
+    &--image {
+      width: 100%;
+      display: block;
+      margin: 20px auto;
+    }
+    &--comment {
+      text-decoration: none;
+      color: #a9a9a9;
+      font-size: 15px;
+      margin-right: 5px;
+    }
+    &--userName {
+      text-decoration: none;
+      color: #a9a9a9;
+      margin-right: 5px;
+    }
+  }
+}
+

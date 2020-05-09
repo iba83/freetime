@@ -1,0 +1,82 @@
+.NewPost {
+  width: 100%;
+  height: calc(100vh - 70px);
+  margin: 0 auto;
+  text-align: center;
+  &--title {
+    padding-top: 40px;
+    font-size: 30px;
+    color: #808080;
+  }
+  &__form {
+    width: 60%;
+    text-align: center;
+    padding: 40px 0 30px;
+    position: relative;
+    margin: 0 auto;
+    &__label {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 10px;
+      &--icon {
+        font-size: 30px;
+        background-color: white;
+        color: #808080;
+      }
+      &--file {
+        display: none;
+      }
+    }
+    #tag {
+      position: absolute;
+      right: 50px;
+      top: 0;
+    }
+    .GroupTags {
+      list-style: none;
+      width: 30%;
+      margin-left: 30%;
+      border: 1px solid #808080;
+      background-color: white;
+      overflow: hidden;
+      padding: 10px;
+      height: 300px;
+      overflow: scroll;
+      position: fixed;
+      display: none;
+      &__button {
+        display: flex;
+        line-height: 30px;
+        &--tag {
+          margin-right: 5px;
+        }  
+        &--label {
+          color: #808080;
+        }
+      }
+    }
+    &--text {
+      height: 500px;
+      width: 100%;
+      font-size: 18px;
+      border-radius: 5px;
+      border: 1px solid gray;
+      padding: 10px;
+    }
+    &--btn {
+      color: #808080;
+      display: block;
+      background-color: #ffffff;
+      height: 45px;
+      width: 100px;
+      text-align: center;
+      line-height: 40px;
+      border-radius: 3px;
+      text-decoration: none;
+      box-shadow: 1px 1px 5px 0 gray;
+      margin: 30px auto;
+    }
+  }
+}
+

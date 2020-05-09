@@ -1,0 +1,33 @@
+.createGroup {
+  height: calc(100vh - 60px);
+  padding: 240px 200px;
+  &--question {
+    color: #808080;
+    font-size: 18px;
+    padding-left: 10px;
+  }
+  &__form {
+    margin: 0 auto;
+    display: flex;
+    padding-top: 30px;
+    &--groupName {
+      height: 50px;
+      box-shadow: 1px 1px 5px 0 gray;
+      border-radius: 3px;
+      width: calc(100% - 100px);
+      margin-right: 5%;
+      padding: 10px;
+    }
+    &--groupButton {
+      height: 50px;
+      color: #808080;
+      background-color: #ffffff;
+      width: 130px;
+      text-align: center;
+      line-height: 50px;
+      border-radius: 3px;
+      text-decoration: none;
+      box-shadow: 1px 1px 5px 0 gray;
+    }
+  }
+}

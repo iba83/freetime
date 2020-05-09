@@ -26,8 +26,8 @@
         %p.rank__top--text Hot Category
       .rank__no
         %ol.rank__no__lists
-          - @groups.slice(0..4).each do |group|
-            %li= link_to group.name, group_path(group.id),class: "rank__no__lists--num"
+          - @rank.each do |rank|
+            %li= link_to rank.name, group_path(rank.id),class: "rank__no__lists--num"
     .new
       %h2.new--title New
       .posts

@@ -5,22 +5,7 @@
     %ol.otherGroupLists
       - @otherGroups.each do |group|
         %li.otherGroupLists--item= link_to group.name, group_path(group.id)
-  .GroupPosts
-    .GroupPosts--title
+  .PostsIndex
+    .PostsIndex--title
       = "#{@group.name} <"
-    .GroupPosts__posts
-      - @posts.each do |post|
-        .GroupPosts__posts__post
-          .comand
-            - if user_signed_in? && current_user.id == post.user_id
-              = link_to "編集", edit_post_path(post.id), class: "comand--button"
-              = link_to "削除", post_path(post.id), method: :delete, class: "comand--button", id: "comandDelete"
-          .GroupPosts__posts__post--created_at
-            = post.created_at.strftime("%Y年%m月%d日 %H:%M:%S")
-          - if post.text.present?
-            %p.GroupPosts__posts__post--text=post.text
-          - if post.image.present?
-            = image_tag post.image_url, class: "GroupPosts__posts__post--image"
-          = link_to "コメント( #{post.comments.length} )", post_path(post.id), class: "GroupPosts__posts__post--comment"
-          = link_to post.user.nickname, user_path(post.user_id), class: "GroupPosts__posts__post--userName"
-
+    = render partial: 'layouts/post_index'

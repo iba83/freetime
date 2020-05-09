@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :move_to_index, except: [:index]
+  before_action :move_to_login_page
 
   def show
     @user = User.find(params[:id])
@@ -30,8 +30,8 @@ class UsersController < ApplicationController
 
   private
 
-  def move_to_index
-    redirect_to root_path unless user_signed_in?
+  def move_to_login_page
+    redirect_to new_user_session_path unless user_signed_in?
   end
 
 end

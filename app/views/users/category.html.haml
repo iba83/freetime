@@ -22,4 +22,4 @@
             %button{type: "submit", class: "userGroupsIndex__items--name"}
               = "#{group.name}(#{@group_id.count(group.id)})"
     .userPosts
-      = render partial: "users/category", collection: @category
+      = render partial: "users/category"
