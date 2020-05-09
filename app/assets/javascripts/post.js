@@ -7,7 +7,7 @@ $(document).on('turbolinks:load', function() {
     $(this).css('background', color);
     id = $.inArray(color, colors);
     colors.splice(id, 1);
-    RandomColor = colors[Math.floor(Math.random()*colors.length)];   
+    RandomColor = colors[Math.floor(Math.random()*colors.length)]; 
   })
 
   $(function(){

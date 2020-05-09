@@ -1,5 +1,5 @@
 .PostsIndexPosts
-  - @category.each do |post|
+  - @posts.each do |post|
     .PostsIndexPosts__one
       .comand
         - if user_signed_in? && current_user.id == post.user_id
@@ -13,3 +13,4 @@
         = image_tag post.image_url, class: "PostsIndexPosts__one--image"
       = link_to "コメント( #{post.comments.length} )", post_path(post.id), class: "PostsIndexPosts__one--comment"
       = link_to post.user.nickname, user_path(post.user_id), class: "PostsIndexPosts__one--userName"
+

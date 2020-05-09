@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
 
-  before_action :move_to_index
+  before_action :move_to_login_page
 
   def new
     @group = Group.new
@@ -26,8 +26,8 @@ class GroupsController < ApplicationController
     params.require(:group).permit(:name)
   end
 
-  def move_to_index
-    redirect_to root_path unless user_signed_in?
+  def move_to_login_page
+    redirect_to new_user_session_path unless user_signed_in?
   end
 
 end

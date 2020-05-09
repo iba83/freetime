@@ -1,10 +1,12 @@
 class PostsController < ApplicationController
 
-  before_action :move_to_index, except: [:index]
+  before_action :move_to_login_page, except: [:index]
 
   def index
     @posts = Post.includes(:group).order(created_at: :desc)
     @groups = Group.all
+    @rank_group_id = Post.group(:group_id).order("count(group_id) desc").limit(5).pluck(:group_id)
+    @rank = Group.where(id: @rank_group_id)
   end
 
   def new
@@ -59,8 +61,8 @@ class PostsController < ApplicationController
     params.require(:post).permit(:text, :image, :group_id).merge(user_id: current_user.id)
   end
 
-  def move_to_index
-    redirect_to root_path unless user_signed_in?
+  def move_to_login_page
+    redirect_to new_user_session_path unless user_signed_in?
   end
 
 end

@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
 
-  before_action :move_to_index
+  before_action :move_to_login_page
   
   def create
     comment = Comment.create(comment_params)
@@ -12,8 +12,8 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:text).merge(user_id: current_user.id, post_id: params[:post_id])
   end
 
-  def move_to_index
-    redirect_to root_path unless user_signed_in?
+  def move_to_login_page
+    redirect_to new_user_session_path unless user_signed_in?
   end
 
 end

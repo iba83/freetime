@@ -1,0 +1,45 @@
+.GroupShow {
+  display: flex;
+  justify-content: space-between;
+  .otherCategory {
+    width: 350px;
+    padding: 100px 40px 60px 100px;
+    &--title {
+      font-size: 20px;
+      color: #808080;
+      border-bottom: 1px solid #808080;
+      padding-bottom: 5px;
+    }
+    .otherGroupLists {
+      padding: 16px 0;
+      font-size: 18px;
+      &--item a{
+        padding-bottom: 5px;
+        text-decoration: none;
+        color: #808080;
+        line-height: 35px;
+      }
+      &--item::before {
+        content: "";
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        background-color: #808080;
+        border-radius: 50%;
+        margin: 0 7px;
+        position: relative;
+        bottom: 2px;
+      }
+    }
+  }
+  .PostsIndex {
+    padding: 40px 130px 30px 90px;
+    width: calc(100% - 300px);
+    &--title {
+      text-align: right;
+      font-size: 40px;
+      color: #808080;
+    }
+  }
+}
+
