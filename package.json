@@ -2,7 +2,8 @@
   "name": "freetime",
   "private": true,
   "dependencies": {
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "webpack-dev-server": "^3.11.0"
   },
   "devDependencies": {}
 }
