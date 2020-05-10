@@ -1,1 +1,1 @@
-web: node web.js
+web: bundle exec puma -C config/puma.rb
