@@ -55,3 +55,6 @@ production:
   # database: freetime_production
   # username: tora
   password: <%= ENV['FREETIME_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  # encoding: unicode
+  pool: 5
