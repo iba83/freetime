@@ -5,8 +5,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.includes(:group).order(created_at: :desc)
     @groups = Group.all
-    @rank_group_id = Post.group(:group_id).order("count(group_id) desc").limit(5).pluck(:group_id)
-    @rank = Group.where(id: @rank_group_id)
+    @rank = Group.where(id: Post.rank_group_id)
   end
 
   def new

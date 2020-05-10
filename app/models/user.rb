@@ -15,6 +15,7 @@ class User < ApplicationRecord
   validates :name, :nickname, presence: true
   validates :name, uniqueness: true
 
+
   def follow(other_user)
     unless self == other_user
       self.follows.find_or_create_by(follow_id: other_user.id)
@@ -34,7 +35,7 @@ class User < ApplicationRecord
     if search
       self.where("nickname LIKE(?)", "%#{search}%")
     else
-      return nil
+      return "該当するユーザーはいません"
     end
   end
 
