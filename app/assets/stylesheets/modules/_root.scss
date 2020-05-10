@@ -218,6 +218,16 @@
           }
           &__content {
             padding: 20px 25px;
+            position: relative;
+            width: 100%;
+            &--link {
+              display: block;
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+            }
             &--text {
               font-size: 18px;
             }

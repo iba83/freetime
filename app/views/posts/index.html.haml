@@ -36,7 +36,9 @@
             .post--CategoryName
               = post.group.name
             .post__content
-              .post__content--text
-                = post.text
-            - if post.image.present?
-              = image_tag post.image.url, class: "post__content--img"
+              %a{href: "/posts/#{post.id}" , class: "post__content--link"}
+              - if post.text.present?
+                .post__content--text
+                  = post.text
+              - if post.image.present?
+                = image_tag post.image.url, class: "post__content--img"
