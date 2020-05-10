@@ -1,5 +1,8 @@
 {
   "name": "freetime",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "request": "^2.88.2"
+  },
+  "devDependencies": {}
 }
