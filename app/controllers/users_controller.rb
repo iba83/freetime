@@ -7,14 +7,8 @@ class UsersController < ApplicationController
     @posts = Post.search_posts(params[:id]).includes(:comments).order(created_at: :desc)
     @group_id = @posts.pluck(:group_id)
     @groups = Group.where(id: @group_id)
-    @follows = @user.follows
-    @follows_id = @follows.pluck(:follow_id)
+    @follows_id = @user.follows.pluck(:follow_id)
     @followUsers = User.where(id: @follows_id)
-
-    # # return nil if params[:input] == " "
-    # @co = params[:category].to_i
-    # # @category = @posts.where(group_id: @co)  
-    # @category = params[:category]
   end
 
   def category
@@ -22,8 +16,7 @@ class UsersController < ApplicationController
     @posts = Post.search_posts(params[:id]).includes(:comments).order(created_at: :desc)
     @group_id = @posts.pluck(:group_id)
     @groups = Group.where(id: @group_id)
-    @follows = @user.follows
-    @follows_id = @follows.pluck(:follow_id)
+    @follows_id = @user.follows.pluck(:follow_id)
     @followUsers = User.where(id: @follows_id)
     @category = @posts.where(group_id: params[:num])
   end

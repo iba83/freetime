@@ -22,6 +22,6 @@
             .userComment--text
               = comment.text
             .userComment__details
-              = link_to comment.user.nickname, user_path(@post.user.id), class: "userComment__details--name"
+              = link_to comment.user.nickname, user_path(comment.user.id), class: "userComment__details--name"
               .userComment__details--time
                 = comment.created_at.strftime("%Y年%m月%d日 %H:%M:%S")
