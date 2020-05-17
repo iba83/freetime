@@ -75,4 +75,6 @@ gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'pg'
-gem "gon"
+gem 'fog-aws'
+gem "dotenv-rails"
+gem 'carrierwave-aws'
