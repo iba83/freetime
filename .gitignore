@@ -29,4 +29,3 @@
 /config/credentials.yml.enc
 public/uploads/*
 /.env
-/config/database.yml
