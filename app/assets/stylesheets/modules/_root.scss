@@ -217,7 +217,6 @@
             border-bottom: 1px solid #808080;
           }
           &__content {
-            padding: 20px 25px;
             position: relative;
             width: 100%;
             &--link {
@@ -229,12 +228,13 @@
               height: 100%;
             }
             &--text {
+              padding-top: 20px;
               font-size: 18px;
             }
             &--img {
-              width: calc(100% - 50px);
               display: block;
-              margin: 0 auto 15px;
+              width: 100%;
+              padding-top: 20px;
             }
           }
         }
