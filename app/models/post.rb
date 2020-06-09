@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :user
+  has_many :favorites, dependent: :destroy
   belongs_to :group
   has_many :comments
 
@@ -25,6 +26,10 @@ class Post < ApplicationRecord
     else
       return nil
     end
+  end
+
+  def favorites_by(user)
+    favorites.where(user_id: user.id).exists?
   end
 
   mount_uploader :image, ImageUploader
