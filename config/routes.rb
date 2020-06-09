@@ -3,14 +3,14 @@ Rails.application.routes.draw do
   get 'favorites/destroy'
   devise_for :users
   root "posts#index"
-  resources :posts, shallow: true do
-    resource :favorites, only: %i[create destroy]
-    get :favorites, on: :collection
+  resources :posts do
+    resource :favorites, only: [:create, :destroy]
     resources :comments, only: :create
     collection do
       get "search"
     end
   end
+  resources :favorites, only: :index
   resources :groups, only: [:new, :create, :show]
   resources :users, only: [:show] do
     member do
