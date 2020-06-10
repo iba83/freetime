@@ -6,6 +6,7 @@ class PostsController < ApplicationController
     @posts = Post.includes(:group).order(created_at: :desc)
     @groups = Group.all
     @rank = Group.where(id: Post.rank_group_id)
+    @fRank = Post.find(Favorite.favorite_post_id)
   end
 
   def new

@@ -11,6 +11,10 @@ class Post < ApplicationRecord
   def self.rank_group_id
     self.group(:group_id).order("count(group_id) desc").limit(5).pluck(:group_id)
   end
+
+  def self.favorite_post_id
+    self.group(:post_id).order("count(post_id) desc").limit(5).pluck(:post_id)
+  end
   
   def self.search(search)
     if search
