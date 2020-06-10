@@ -11,6 +11,7 @@
         %p.PostsIndexPosts__one--text=post.text
       - if post.image.present?
         = image_tag post.image_url, class: "PostsIndexPosts__one--image"
+      = render partial: 'favorites/favoritesbtn', locals: {post: post}
       = link_to "コメント( #{post.comments.length} )", post_path(post.id), class: "PostsIndexPosts__one--comment"
       = link_to post.user.nickname, user_path(post.user_id), class: "PostsIndexPosts__one--userName"
 

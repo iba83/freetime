@@ -12,6 +12,7 @@
       = image_tag @post.image_url, class: "postShow__content--image"
     .comments
       .comments--title
+        = render partial: 'favorites/favoritesbtn', locals: {post: @post}
         = "コメント ( #{@comments.length} )"
       = form_with(model: [@post, @comment], local: true, class: "comments__form") do |f|
         = f.text_area :text, placeholder: "comment...", class: "comments__form--input"

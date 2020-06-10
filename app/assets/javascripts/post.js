@@ -25,6 +25,12 @@ $(document).on('turbolinks:load', function() {
   })
 
   $(function(){
+    $(".GroupTags__button--tag").change(function(){
+      $(".GroupTags").slideUp();
+    });
+  });
+
+  $(function(){
     $("#groupButton").on("click", function(){
       $("#searchGroupList").show();
       $("#searchUserList").hide();
