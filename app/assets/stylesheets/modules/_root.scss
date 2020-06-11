@@ -150,7 +150,11 @@
         color: white;
         &--icon {
           padding-right: 10px;
+          color: #ffd700;
         }
+      }
+      #post_rank {
+        margin-top: 20px;
       }
       &__no {
         margin-top: 20px;
@@ -166,12 +170,16 @@
           position: relative;
           &--num {
             position: relative;
-            padding: 0.5px 0.5px 0.5px 45px;
+            padding: 0.5px 45px;
             margin: 15px 0 15px;
             display: block;
             font-size: 18px;
             text-decoration: none;
             color: #808080;
+            word-wrap: break-word;
+            .rank_image {
+              width: 100%;
+            }
           }
           &--num::before {
             position: absolute;

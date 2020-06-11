@@ -22,12 +22,24 @@
   .contents 
     .rank
       .rank__top
-        %i.fas.fa-fire-alt.rank__top--icon
-        %p.rank__top--text Hot Category
+        %i.fas.fa-crown.rank__top--icon
+        %p.rank__top--text Category Ranking
       .rank__no
         %ol.rank__no__lists
           - @rank.each do |rank|
             %li= link_to rank.name, group_path(rank.id),class: "rank__no__lists--num"
+      .rank__top#post_rank
+        %i.fas.fa-crown.rank__top--icon
+        %p.rank__top--text Post Ranking
+      .rank__no
+        %ol.rank__no__lists
+          - @fRank.each do |rank|
+            %li
+              =link_to post_path(rank.id), class: "rank__no__lists--num" do
+                - if rank.text.present?
+                  = rank.text
+                - if rank.image.present?
+                  = image_tag rank.image_url, class: "rank_image"
     .new
       %h2.new--title New
       .posts
