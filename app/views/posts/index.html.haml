@@ -1,56 +1,56 @@
-.wrapper
-  .title
-    %h1 My Free Time ...
-  = form_with(url: search_posts_path, local: true, method: :get, class: "search") do |form|
-    = form.text_field :keyword, class: "search__form"
-    %button{type: "submit", class: "search__icon"}
-      %i.fas.fa-search
-  .GroupContent
-    %ol.groups
-      - @groups.slice(0..8).each do |group|
-        %li= link_to group.name, group_path(group.id), class: "group"
-      - if @groups.length >= 9
-        = link_to do
-          %i.fas.fa-angle-double-down.etc
-      - if @groups.length < 9
-        %li= link_to "グループを作る", new_group_path, class: "group"
-    %ol.OtherGroups
-      - if @groups.length > 9
-        - @groups.slice(9..-1).each do |group|
-          %li= link_to group.name, group_path(group.id), type: "button", class: "SubGroup"
-      = link_to ">>新しい趣味カテゴリーを追加する", new_group_path, id: "createGroup"
-  .contents 
-    .rank
-      .rank__top
-        %i.fas.fa-crown.rank__top--icon
-        %p.rank__top--text Category Ranking
-      .rank__no
-        %ol.rank__no__lists
-          - @rank.each do |rank|
-            %li= link_to rank.name, group_path(rank.id),class: "rank__no__lists--num"
-      .rank__top#post_rank
-        %i.fas.fa-crown.rank__top--icon
-        %p.rank__top--text Post Ranking
-      .rank__no
-        %ol.rank__no__lists
-          - @fRank.each do |rank|
-            %li
-              =link_to post_path(rank.id), class: "rank__no__lists--num" do
-                - if rank.text.present?
-                  = rank.text
-                - if rank.image.present?
-                  = image_tag rank.image_url, class: "rank_image"
-    .new
-      %h2.new--title New
-      .posts
-        - @posts.first(5).each do |post|
-          .post
-            .post--CategoryName
-              = post.group.name
-            .post__content
-              %a{href: "/posts/#{post.id}" , class: "post__content--link"}
-              - if post.text.present?
-                .post__content--text
-                  = post.text
-              - if post.image.present?
-                = image_tag post.image.url, class: "post__content--img"
+-# .wrapper
+-#   .title
+-#     %h1 My Free Time ...
+-#   = form_with(url: search_posts_path, local: true, method: :get, class: "search") do |form|
+-#     = form.text_field :keyword, class: "search__form"
+-#     %button{type: "submit", class: "search__icon"}
+-#       %i.fas.fa-search
+-#   .GroupContent
+-#     %ol.groups
+-#       - @groups.slice(0..8).each do |group|
+-#         %li= link_to group.name, group_path(group.id), class: "group"
+-#       - if @groups.length >= 9
+-#         = link_to do
+-#           %i.fas.fa-angle-double-down.etc
+-#       - if @groups.length < 9
+-#         %li= link_to "グループを作る", new_group_path, class: "group"
+-#     %ol.OtherGroups
+-#       - if @groups.length > 9
+-#         - @groups.slice(9..-1).each do |group|
+-#           %li= link_to group.name, group_path(group.id), type: "button", class: "SubGroup"
+-#       = link_to ">>新しい趣味カテゴリーを追加する", new_group_path, id: "createGroup"
+-#   .contents 
+-#     .rank
+-#       .rank__top
+-#         %i.fas.fa-crown.rank__top--icon
+-#         %p.rank__top--text Category Ranking
+-#       .rank__no
+-#         %ol.rank__no__lists
+-#           - @rank.each do |rank|
+-#             %li= link_to rank.name, group_path(rank.id),class: "rank__no__lists--num"
+-#       .rank__top#post_rank
+-#         %i.fas.fa-crown.rank__top--icon
+-#         %p.rank__top--text Post Ranking
+-#       .rank__no
+-#         %ol.rank__no__lists
+-#           - @fRank.each do |rank|
+-#             %li
+-#               =link_to post_path(rank.id), class: "rank__no__lists--num" do
+-#                 - if rank.text.present?
+-#                   = rank.text
+-#                 - if rank.image.present?
+-#                   = image_tag rank.image_url, class: "rank_image"
+-#     .new
+-#       %h2.new--title New
+-#       .posts
+-#         - @posts.first(5).each do |post|
+-#           .post
+-#             .post--CategoryName
+-#               = post.group.name
+-#             .post__content
+-#               %a{href: "/posts/#{post.id}" , class: "post__content--link"}
+-#               - if post.text.present?
+-#                 .post__content--text
+-#                   = post.text
+-#               - if post.image.present?
+-#                 = image_tag post.image.url, class: "post__content--img"

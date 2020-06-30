@@ -11,6 +11,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    5.times { @post.images.build }
     @groups = Group.all
   end
 
@@ -58,7 +59,11 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:text, :image, :group_id).merge(user_id: current_user.id)
+    params.require(:post).permit(
+      :text,
+      :group_id,
+      images_attributes: [:image]
+    ).merge(user_id: current_user.id)
   end
 
   def move_to_login_page

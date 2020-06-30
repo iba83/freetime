@@ -4,8 +4,9 @@ class Post < ApplicationRecord
   belongs_to :group
   has_many :comments
   has_many :images, dependent: :destroy
+  accepts_nested_attributes_for :images, allow_destroy: true, reject_if: :all_blank
 
-  validates :text, presence: true, unless: :image?
+  # validates :text, presence: true, unless: :image?
 
   scope :search_posts, -> (id){where(user_id: (id))}
 
@@ -32,6 +33,4 @@ class Post < ApplicationRecord
   def favorites_by(user)
     favorites.where(user_id: user.id).exists?
   end
-
-  mount_uploader :image, ImageUploader
 end
