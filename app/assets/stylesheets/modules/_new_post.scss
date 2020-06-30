@@ -4,7 +4,7 @@
   margin: 0 auto;
   text-align: center;
   &--title {
-    padding-top: 40px;
+    padding-top: 30px;
     font-size: 30px;
     color: #808080;
   }
@@ -57,12 +57,21 @@
       }
     }
     &--text {
-      height: 500px;
+      height: 250px;
       width: 100%;
       font-size: 18px;
       border-radius: 5px;
       border: 1px solid gray;
       padding: 10px;
+    }
+    &__imageBox {
+      height: 250px;
+      margin-top: 10px;
+      border: 1px dotted gray;
+      color: #808080;
+      line-height: 250px;
+      text-align: center;
+      display: block;
     }
     &--btn {
       color: #808080;
