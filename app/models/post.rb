@@ -3,6 +3,7 @@ class Post < ApplicationRecord
   has_many :favorites, dependent: :destroy
   belongs_to :group
   has_many :comments
+  has_many :images, dependent: :destroy
 
   validates :text, presence: true, unless: :image?
 
