@@ -227,6 +227,7 @@
           &__content {
             position: relative;
             width: 100%;
+            text-align: center;
             &--link {
               display: block;
               position: absolute;
@@ -238,11 +239,18 @@
             &--text {
               padding-top: 20px;
               font-size: 18px;
+              text-align: left;
             }
             &--img {
               display: block;
               width: 100%;
               padding-top: 20px;
+              max-height: 400px;
+            }
+            &--smallImg {
+              margin-top: 10px;
+              width: 24.4%;
+              max-height: 105px;
             }
           }
         }
