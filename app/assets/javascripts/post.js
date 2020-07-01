@@ -62,12 +62,13 @@ $(document).on('turbolinks:load', function() {
       $(`#imageItem${index}`).append(`<img id="imageTag${index}">`);
       $(`#imageTag${index}`).attr({class: 'NewPost__form__imageForm__item--pict', src: reader.result});
       $(`#imageTag${index}`).after(`<div class="pictBtns" id="pictBtns${index}"></div>`);
-      $(`#pictBtns${index}`).append(`<p class="editBtn pictBtn fas fa-images" id="editBtn${index}"></p>`, `<p class="deleteBtn pictBtn fas fa-trash-alt" id="editBtn${index}"></p>`);
-      var length = $(".NewPost__form__imageForm__item--pict").width();
-      $('.NewPost__form__imageForm__imageBox').width(800 - length);
+      $(`#pictBtns${index}`).append(`<p class="editBtn pictBtn fas fa-images" id="editBtn${index}"></p>`, `<p class="deleteBtn pictBtn fas fa-trash-alt" id="deleteBtn${index}"></p>`);
       $('.NewPost__form__imageForm__imageBox').attr({for: `post_images_attributes_${index + 1}_image`});
-      if (index >= 4){
+      var length = $(".NewPost__form__imageForm img").length;
+      if (length > 4){
         $('.NewPost__form__imageForm__imageBox').hide();
+      } else {
+        $('.NewPost__form__imageForm__imageBox').show();
       }
       $('#editBtn0').off("click").on("click", function(){
         $('#post_images_attributes_0_image').trigger("click");
@@ -100,9 +101,52 @@ $(document).on('turbolinks:load', function() {
           $('#pictBtns4').remove();
         })
       });
-      return false
+      $('#deleteBtn0').off("click").on("click", function(){
+        $('#post_images_attributes_0_image').val('');
+        $('#imageItem0').remove();
+        $('.NewPost__form__imageForm__imageBox').attr({for: `post_images_attributes_0_image`});
+        var length = $(".NewPost__form__imageForm img").length;
+        if (length < 5){
+          $('.NewPost__form__imageForm__imageBox').show();
+        }  
+      });
+      $('#deleteBtn1').off("click").on("click", function(){
+        $('#post_images_attributes_1_image').val('');
+        $('#imageItem1').remove();
+        $('.NewPost__form__imageForm__imageBox').attr({for: `post_images_attributes_1_image`});
+        var length = $(".NewPost__form__imageForm img").length;
+        if (length < 5){
+          $('.NewPost__form__imageForm__imageBox').show();
+        }  
+      });
+      $('#deleteBtn2').off("click").on("click", function(){
+        $('#post_images_attributes_2_image').val('');
+        $('#imageItem2').remove();
+        $('.NewPost__form__imageForm__imageBox').attr({for: `post_images_attributes_2_image`});
+        var length = $(".NewPost__form__imageForm img").length;
+        if (length < 5){
+          $('.NewPost__form__imageForm__imageBox').show();
+        }  
+      });
+      $('#deleteBtn3').off("click").on("click", function(){
+        $('#post_images_attributes_3_image').val('');
+        $('#imageItem3').remove();
+        $('.NewPost__form__imageForm__imageBox').attr({for: `post_images_attributes_3_image`});
+        var length = $(".NewPost__form__imageForm img").length;
+        if (length < 5){
+          $('.NewPost__form__imageForm__imageBox').show();
+        }  
+      });
+      $('#deleteBtn4').off("click").on("click", function(){
+        $('#post_images_attributes_4_image').val('');
+        $('#imageItem4').remove();
+        $('.NewPost__form__imageForm__imageBox').attr({for: `post_images_attributes_4_image`});
+        var length = $(".NewPost__form__imageForm img").length;
+        if (length < 5){
+          $('.NewPost__form__imageForm__imageBox').show();
+        }  
+      });
     }
     reader.readAsDataURL(file);
   });
-
 });
