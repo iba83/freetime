@@ -60,9 +60,11 @@ $(document).on('turbolinks:load', function() {
     var reader = new FileReader();
     var fileBoxWidth = $('.NewPost__form__imageForm__imageBox').width();
     reader.onload = function () {
-      $('.NewPost__form__imageForm__imageBox').before(`<img id="imageTag${index}">`);
-      $(`#imageTag${index}`).attr('class', 'NewPost__form__imageForm--pict');
-      $(`#imageTag${index}`).attr('src', reader.result);
+      $('.NewPost__form__imageForm__imageBox').before(`<div class="NewPost__form__imageForm__item" id="imageItem${index}"></div>`)
+      $(`#imageItem${index}`).append(`<img id="imageTag${index}">`);
+      $(`#imageTag${index}`).attr({class: 'NewPost__form__imageForm__item--pict', src: reader.result});
+      $(`#imageTag${index}`).after(`<div class="pictBtns" id="pictBtns${index}"></div>`);
+      $(`#pictBtns${index}`).append('<a class="editBtn pictBtn fas fa-images"></a>', '<a class="deleteBtn pictBtn fas fa-trash-alt"></a>');
       $('.NewPost__form__imageForm__imageBox').width(fileBoxWidth - 140);
       $('.NewPost__form__imageForm__imageBox').attr({for: `post_images_attributes_${index + 1}_image`});
       if (index >= 4){
