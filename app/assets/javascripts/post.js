@@ -55,24 +55,54 @@ $(document).on('turbolinks:load', function() {
 
   $('.imageFile[type=file]').on('change', function(){
     var index = $('.imageFile[type=file]').index(this);
-    console.log(index)
     var file = this.files[0];
     var reader = new FileReader();
-    var fileBoxWidth = $('.NewPost__form__imageForm__imageBox').width();
     reader.onload = function () {
       $('.NewPost__form__imageForm__imageBox').before(`<div class="NewPost__form__imageForm__item" id="imageItem${index}"></div>`)
       $(`#imageItem${index}`).append(`<img id="imageTag${index}">`);
       $(`#imageTag${index}`).attr({class: 'NewPost__form__imageForm__item--pict', src: reader.result});
       $(`#imageTag${index}`).after(`<div class="pictBtns" id="pictBtns${index}"></div>`);
-      $(`#pictBtns${index}`).append('<a class="editBtn pictBtn fas fa-images"></a>', '<a class="deleteBtn pictBtn fas fa-trash-alt"></a>');
-      $('.NewPost__form__imageForm__imageBox').width(fileBoxWidth - 140);
+      $(`#pictBtns${index}`).append(`<p class="editBtn pictBtn fas fa-images" id="editBtn${index}"></p>`, `<p class="deleteBtn pictBtn fas fa-trash-alt" id="editBtn${index}"></p>`);
+      var length = $(".NewPost__form__imageForm__item--pict").width();
+      $('.NewPost__form__imageForm__imageBox').width(800 - length);
       $('.NewPost__form__imageForm__imageBox').attr({for: `post_images_attributes_${index + 1}_image`});
       if (index >= 4){
         $('.NewPost__form__imageForm__imageBox').hide();
       }
+      $('#editBtn0').off("click").on("click", function(){
+        $('#post_images_attributes_0_image').trigger("click");
+        $('#post_images_attributes_0_image').on('change', function(e){
+          $('#pictBtns0').remove();
+          e.stopPropagation();
+        })
+      });
+      $('#editBtn1').off("click").on("click", function(){
+        $('#post_images_attributes_1_image').trigger("click");
+        $('#post_images_attributes_1_image').on('change', function(){
+          $('#pictBtns1').remove();
+        })
+      });
+      $('#editBtn2').off("click").on("click", function(){
+        $('#post_images_attributes_2_image').trigger("click");
+        $('#post_images_attributes_2_image').on('change', function(){
+          $('#pictBtns2').remove();
+        })
+      });
+      $('#editBtn3').off("click").on("click", function(){
+        $('#post_images_attributes_3_image').trigger("click");
+        $('#post_images_attributes_3_image').on('change', function(){
+          $('#pictBtns3').remove();
+        })
+      });
+      $('#editBtn4').off("click").on("click", function(){
+        $('#post_images_attributes_4_image').trigger("click");
+        $('#post_images_attributes_4_image').on('change', function(){
+          $('#pictBtns4').remove();
+        })
+      });
+      return false
     }
     reader.readAsDataURL(file);
-  })
-
+  });
 
 });
