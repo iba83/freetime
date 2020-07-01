@@ -11,8 +11,9 @@
           %li= f.radio_button :group_id, group.id, id: group.id, class: "GroupTags__button--tag"
           = f.label group.name, for: group.id, class: "GroupTags__button--label"
     = f.text_area :text, autofocus: true, class: "NewPost__form--text"
-    = f.label :images_attributes_0_image, class: "NewPost__form__imageBox" do
-      クリックしてファイルをアップロード
-      = f.fields_for :images do |a|
-        = a.file_field :image
+    .NewPost__form__imageForm
+      = f.label :images_attributes_0_image, class: "NewPost__form__imageForm__imageBox" do
+        クリックしてファイルをアップロード
+        = f.fields_for :images do |a|
+          = a.file_field :image, class: "imageFile"
     = f.submit "投稿", class: "NewPost__form--btn"

@@ -53,4 +53,19 @@ $(document).on('turbolinks:load', function() {
     })
   })
 
+  $('.imageFile[type=file]').on('change', function(){
+    var index = $('.imageFile[type=file]').index(this);
+    var file = this.files[index];
+    var reader = new FileReader();
+    var fileBoxWidth = $('.NewPost__form__imageForm__imageBox').width();
+    reader.onload = function () {
+      $('.NewPost__form__imageForm__imageBox').before(`<img id="imageTag${index}">`);
+      $(`#imageTag${index}`).attr('class', 'NewPost__form__imageForm--pict');
+      $(`#imageTag${index}`).attr('src', reader.result);
+      $('.NewPost__form__imageForm__imageBox').width(fileBoxWidth - 250);
+    }
+    reader.readAsDataURL(file);
+  })
+
+
 });

@@ -63,15 +63,27 @@
       border-radius: 5px;
       border: 1px solid gray;
       padding: 10px;
+      margin-bottom: 10px;
     }
-    &__imageBox {
-      height: 250px;
-      margin-top: 10px;
-      border: 1px dotted gray;
-      color: #808080;
-      line-height: 250px;
-      text-align: center;
-      display: block;
+    &__imageForm {
+      display: flex;
+      &--pict {
+        height: 250px;
+        width: 244px;
+        display: inline-block;
+        padding: 3px;
+      }
+      &__imageBox {
+        width: 100%;
+        border: 1px dotted gray;
+        color: #808080;
+        line-height: 248px;
+        text-align: center;
+        display: inline-block;
+        .imageFile {
+          display: none;
+        }
+      }
     }
     &--btn {
       color: #808080;
