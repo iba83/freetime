@@ -13,7 +13,8 @@
     = f.text_area :text, autofocus: true, class: "NewPost__form--text"
     .NewPost__form__imageForm
       = f.label :images_attributes_0_image, class: "NewPost__form__imageForm__imageBox" do
-        クリックしてファイルをアップロード
+        %p.NewPost__form__imageForm__imageBox--text 
+          クリックしてファイルをアップロード
         = f.fields_for :images do |a|
           = a.file_field :image, class: "imageFile"
     = f.submit "投稿", class: "NewPost__form--btn"

@@ -55,14 +55,19 @@ $(document).on('turbolinks:load', function() {
 
   $('.imageFile[type=file]').on('change', function(){
     var index = $('.imageFile[type=file]').index(this);
-    var file = this.files[index];
+    console.log(index)
+    var file = this.files[0];
     var reader = new FileReader();
     var fileBoxWidth = $('.NewPost__form__imageForm__imageBox').width();
     reader.onload = function () {
       $('.NewPost__form__imageForm__imageBox').before(`<img id="imageTag${index}">`);
       $(`#imageTag${index}`).attr('class', 'NewPost__form__imageForm--pict');
       $(`#imageTag${index}`).attr('src', reader.result);
-      $('.NewPost__form__imageForm__imageBox').width(fileBoxWidth - 250);
+      $('.NewPost__form__imageForm__imageBox').width(fileBoxWidth - 140);
+      $('.NewPost__form__imageForm__imageBox').attr({for: `post_images_attributes_${index + 1}_image`});
+      if (index >= 4){
+        $('.NewPost__form__imageForm__imageBox').hide();
+      }
     }
     reader.readAsDataURL(file);
   })

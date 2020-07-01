@@ -4,14 +4,14 @@
   margin: 0 auto;
   text-align: center;
   &--title {
-    padding-top: 30px;
+    padding-top: 40px;
     font-size: 30px;
     color: #808080;
   }
   &__form {
-    width: 60%;
+    width: 800px;
     text-align: center;
-    padding: 40px 0 30px;
+    padding: 40px 0 0px;
     position: relative;
     margin: 0 auto;
     &__label {
@@ -30,7 +30,7 @@
     }
     #tag {
       position: absolute;
-      right: 50px;
+      right: 10px;
       top: 0;
     }
     .GroupTags {
@@ -57,7 +57,7 @@
       }
     }
     &--text {
-      height: 250px;
+      height: 300px;
       width: 100%;
       font-size: 18px;
       border-radius: 5px;
@@ -68,18 +68,19 @@
     &__imageForm {
       display: flex;
       &--pict {
-        height: 250px;
-        width: 244px;
+        height: 158px;
+        width: 154px;
         display: inline-block;
         padding: 3px;
       }
       &__imageBox {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 100%;
+        height: 160px;
         border: 1px dotted gray;
         color: #808080;
-        line-height: 248px;
-        text-align: center;
-        display: inline-block;
         .imageFile {
           display: none;
         }
@@ -96,7 +97,7 @@
       border-radius: 3px;
       text-decoration: none;
       box-shadow: 1px 1px 5px 0 gray;
-      margin: 30px auto;
+      margin: 50px auto;
     }
   }
 }
