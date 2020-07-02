@@ -34,11 +34,12 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     @groups = Group.all
+    @post.images.build
   end
 
   def update
     post = Post.find(params[:id])
-    if post.update(post_params)
+    if post.update(post_update_params)
       redirect_to :root
     else
       render :edit
@@ -64,6 +65,17 @@ class PostsController < ApplicationController
       :group_id,
       images_attributes: [:image]
     ).merge(user_id: current_user.id)
+  end
+
+  def post_update_params
+    params.require(:post).permit(
+      :text,
+      :group_id,
+      images_attributes: [
+        :image,
+        :_destroy,
+        :id
+      ]).merge(user_id: current_user.id)
   end
 
   def move_to_login_page

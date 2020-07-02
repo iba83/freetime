@@ -12,9 +12,20 @@
           = f.label group.name, for: group.id, class: "GroupTags__button--label"
     = f.text_area :text, autofocus: true, class: "NewPost__form--text"
     .NewPost__form__imageForm
-      = f.label :images_attributes_0_image, class: "NewPost__form__imageForm__imageBox" do
+      - if @post.images.present?
+        - @post.images.each_with_index do |image, i|
+          .div{class: "NewPost__form__imageForm__item", id: "imageItem#{i}"}
+            = image_tag image.image_url, class: "NewPost__form__imageForm__item--pict", id: "imageTag#{i}"
+            .div{class: "pictBtns", id: "pictBtns#{i}"}
+              %p{class: "editBtn pictBtn fas fa-images", id: "editBtn#{i}", name: "#{i}"}
+              %p{class: "deleteBtn pictBtn fas fa-trash-alt", id: "deleteBtn#{i}", name: "#{i}"}
+      = f.label :"images_attributes_#{@post.images.length}_image", class: "NewPost__form__imageForm__imageBox" do
         %p.NewPost__form__imageForm__imageBox--text 
           クリックしてファイルをアップロード
         = f.fields_for :images do |a|
           = a.file_field :image, class: "imageFile"
+          = a.check_box:_destroy
+        - @post.images.length.upto(4) do |i|
+          %input{name: "post[images_attributes][#{i}][image]", id: "post_images_attributes_#{i}_image", type:"file", class: "imageFile"}
     = f.submit "投稿", class: "NewPost__form--btn"
+
