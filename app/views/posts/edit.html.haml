@@ -2,6 +2,7 @@
   .NewPost--title
     新規投稿
   = form_with model: @post, class: "NewPost__form", local: true do |f|
+    = render "layouts/error_messages", model: f.object
     = link_to do
       %i.fas.fa-tag.NewPost__form__label--icon#tag
     %ul.GroupTags
@@ -9,8 +10,11 @@
         .GroupTags__button
           %li= f.radio_button :group_id, group.id, id: group.id, class: "GroupTags__button--tag"
           = f.label group.name, for: group.id, class: "GroupTags__button--label"
-    = f.label :image, class: "NewPost__form__label"  do
-      %i.fas.fa-camera-retro.NewPost__form__label--icon
-      = f.file_field :image, class: "NewPost__form__label--file"
     = f.text_area :text, autofocus: true, class: "NewPost__form--text"
+    .NewPost__form__imageForm
+      = f.label :images_attributes_0_image, class: "NewPost__form__imageForm__imageBox" do
+        %p.NewPost__form__imageForm__imageBox--text 
+          クリックしてファイルをアップロード
+        = f.fields_for :images do |a|
+          = a.file_field :image, class: "imageFile"
     = f.submit "投稿", class: "NewPost__form--btn"
