@@ -8,8 +8,9 @@
     - if @post.text.present?
       .postShow__content--text
         = @post.text
-    - if @post.image.present?
-      = image_tag @post.image_url, class: "postShow__content--image"
+    - if @post.images.present?
+      - @post.images.each do |image|
+        = image_tag image.image_url, class: "postShow__content--image"
     .comments
       .comments--title
         = render partial: 'favorites/favoritesbtn', locals: {post: @post}
