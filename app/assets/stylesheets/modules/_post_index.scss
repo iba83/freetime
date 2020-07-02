@@ -32,10 +32,19 @@
       line-height: 30px;
       word-break : break-all;
     }
-    &--image {
+    .imageIndex {
+      display: flex;
       width: 100%;
-      display: block;
-      margin: 20px auto;
+      &--firstPic {
+        width: 70%;
+        display: block;
+      }
+      &__otherPicts {
+        width: 30%;
+        &--pic {
+          width: 47%;
+        }
+      }
     }
     &--comment {
       text-decoration: none;

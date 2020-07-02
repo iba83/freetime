@@ -9,8 +9,12 @@
         = post.created_at.strftime("%Y年%m月%d日 %H:%M:%S")
       - if post.text.present?
         %p.PostsIndexPosts__one--text=post.text
-      - if post.image.present?
-        = image_tag post.image_url, class: "PostsIndexPosts__one--image"
+      - if post.images.present?
+        .imageIndex
+          = image_tag post.images.first.image_url, class: "imageIndex--firstPic"
+          .imageIndex__otherPicts
+            - post.images.slice(1..-1).each do |image|
+              = image_tag image.image_url, class: "imageIndex__otherPicts--pic"
       = render partial: 'favorites/favoritesbtn', locals: {post: post}
       = link_to "コメント( #{post.comments.length} )", post_path(post.id), class: "PostsIndexPosts__one--comment"
       = link_to post.user.nickname, user_path(post.user_id), class: "PostsIndexPosts__one--userName"
