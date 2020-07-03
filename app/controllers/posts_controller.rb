@@ -33,13 +33,17 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-    @groups = Group.all
+    @images = Image.where(post_id: params[:id])
     @post.images.build
+    @groups = Group.all
   end
 
   def update
     post = Post.find(params[:id])
+    post.images.pluck(:id)
+
     if post.update(post_update_params)
+      binding.pry
       redirect_to :root
     else
       render :edit

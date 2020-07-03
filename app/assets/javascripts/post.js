@@ -56,20 +56,20 @@ $(document).on('turbolinks:load', function() {
   var btnAction = function(){
     $('.editBtn').off("click").on("click", function(){
       var name = $(this).attr('name');
+      $("NewPost__form__imageForm__item--pict").removeAttr("id")
       $(`#post_images_attributes_${name}_image`).trigger("click");
-      $(`#post_images_attributes_${name}_image`).on('change', function(e){
+      $(`#post_images_attributes_${name}_image`).on('change', function(){
         $(`#pictBtns${name}`).remove();
-        $(this).removeAttribute();
       })
     });
 
     $('.deleteBtn').off("click").on("click", function(){
+      $("NewPost__form__imageForm__item--pict").removeAttr("id")
       var name = $(this).attr('name');
       $(`#post_images_attributes_${name}_image`).val('');
       $(`#imageItem${name}`).remove();
       $(`#post_images_attributes_${name}__destroy`).prop("checked", true);
       $('.NewPost__form__imageForm__imageBox').attr({for: `post_images_attributes_${name}_image`});
-      $(`post_images_attributes_${name}_image`).removeAttribute();
     });
 
     var length = $(".NewPost__form__imageForm img").length;
@@ -95,6 +95,9 @@ $(document).on('turbolinks:load', function() {
       $(`#imageTag${index}`).after(`<div class="pictBtns" id="pictBtns${index}"></div>`);
       $(`#pictBtns${index}`).append(`<p class="editBtn pictBtn fas fa-images" id="editBtn${index}" name="${index}"></p>`, `<p class="deleteBtn pictBtn fas fa-trash-alt" id="deleteBtn${index}"></p>`);
       $('.NewPost__form__imageForm__imageBox').attr({for: `post_images_attributes_${index + 1}_image`});
+      // if ($(`#post_images_attributes_${index}__destroy`)){
+      //   $(`#post_images_attributes_${index}__destroy`).prop('checked', false);
+      // }
       btnAction();
     }
     reader.readAsDataURL(file);

@@ -97,8 +97,8 @@
         height: 210px;
         border: 1px dotted gray;
         color: #808080;
-        .imageFile {
-          // display: none;
+        .imageFile, .checkBox {
+          display: none;
         }
       }
     }
