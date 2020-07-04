@@ -40,10 +40,7 @@ class PostsController < ApplicationController
 
   def update
     post = Post.find(params[:id])
-    post.images.pluck(:id)
-
     if post.update(post_update_params)
-      binding.pry
       redirect_to :root
     else
       render :edit
