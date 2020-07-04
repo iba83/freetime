@@ -6,7 +6,7 @@ class Post < ApplicationRecord
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true, reject_if: :all_blank
 
-  # validates :text, presence: true, unless: :image?
+  validates :images, presence: true
 
   scope :search_posts, -> (id){where(user_id: (id))}
 

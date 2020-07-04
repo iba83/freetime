@@ -21,6 +21,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to root_path
     else
+      5.times { @post.images.build }
       render :new
     end
   end
@@ -43,6 +44,7 @@ class PostsController < ApplicationController
     if post.update(post_update_params)
       redirect_to :root
     else
+      @post.images.build
       render :edit
     end
   end
