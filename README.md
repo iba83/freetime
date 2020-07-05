@@ -17,6 +17,7 @@
 - 記事投稿数ランキング機能
 - 記事に対してのお気に入り機能
 - お気に入り数のランキング機能
+- 一つの記事に対して複数枚写真を登録できる機能
 
 ## 本番環境
 デプロイ先 : https://freetime888.herokuapp.com/  
@@ -44,9 +45,6 @@
 - scss
 - Ruby on rails
 - jquery
-
-## 今後の実装したい機能
-- 一つの記事に対して複数枚写真を登録できる機能
 
 <a href="https://gyazo.com/edaf365d4cdaac2713966fbd54e9def1"><img src="https://i.gyazo.com/edaf365d4cdaac2713966fbd54e9def1.gif" alt="Image from Gyazo" width="1000"/></a>
 <a href="https://gyazo.com/c3da47fbd34079fd9605f37db95aa88d"><img src="https://i.gyazo.com/c3da47fbd34079fd9605f37db95aa88d.gif" alt="Image from Gyazo" width="998"/></a>
